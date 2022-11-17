@@ -1,5 +1,4 @@
-# computer-graphics
- Course design
+# 计算机图形学课程设计
+装好opengl库即可运行，具体操作运行看提示信息即可。
 
-计算机图形学课程设计。
-
+具体介绍会在这两天整理好。
