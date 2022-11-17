@@ -1,0 +1,10 @@
+﻿  main.cpp
+c:\users\77280\desktop\computer\mywork\program\program\algorithms.h(216): warning C4018: “<”: 有符号/无符号不匹配
+c:\users\77280\desktop\computer\mywork\program\program\algorithms.h(248): warning C4018: “<”: 有符号/无符号不匹配
+c:\users\77280\desktop\computer\mywork\program\program\algorithms.h(477): warning C4018: “<”: 有符号/无符号不匹配
+c:\users\77280\desktop\computer\mywork\program\program\diasplay.h(42): warning C4018: “<”: 有符号/无符号不匹配
+c:\users\77280\desktop\computer\mywork\program\program\diasplay.h(133): warning C4838: 从“int”转换到“float”需要收缩转换
+c:\users\77280\desktop\computer\mywork\program\program\diasplay.h(146): warning C4838: 从“int”转换到“float”需要收缩转换
+c:\users\77280\desktop\computer\mywork\program\program\diasplay.h(152): warning C4838: 从“int”转换到“float”需要收缩转换
+c:\users\77280\desktop\computer\mywork\program\program\diasplay.h(265): warning C4018: “<”: 有符号/无符号不匹配
+  program.vcxproj -> C:\Users\77280\Desktop\computer\mywork\program\Debug\program.exe

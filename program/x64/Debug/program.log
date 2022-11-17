@@ -1,0 +1,10 @@
+﻿  main.cpp
+d:\windows kits\10\include\10.0.17763.0\shared\minwindef.h(127): warning C4005: “CALLBACK”: 宏重定义
+  d:\visualstudio\ide\vc\tools\msvc\14.16.27023\include\gl\glut.h(33): note: 参见“CALLBACK”的前一个定义
+c:\users\77280\desktop\computer\mywork\program\computer-graphics\program\algorithms.h(267): warning C4267: “初始化”: 从“size_t”转换到“int”，可能丢失数据
+c:\users\77280\desktop\computer\mywork\program\computer-graphics\program\algorithms.h(535): warning C4267: “初始化”: 从“size_t”转换到“int”，可能丢失数据
+c:\users\77280\desktop\computer\mywork\program\computer-graphics\program\algorithms.h(790): warning C4267: “初始化”: 从“size_t”转换到“GLint”，可能丢失数据
+c:\users\77280\desktop\computer\mywork\program\computer-graphics\program\diasplay.h(133): warning C4838: 从“int”转换到“float”需要收缩转换
+c:\users\77280\desktop\computer\mywork\program\computer-graphics\program\diasplay.h(146): warning C4838: 从“int”转换到“float”需要收缩转换
+c:\users\77280\desktop\computer\mywork\program\computer-graphics\program\diasplay.h(152): warning C4838: 从“int”转换到“float”需要收缩转换
+LINK : fatal error LNK1104: 无法打开文件“glut32.lib”
