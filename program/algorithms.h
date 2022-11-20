@@ -4,7 +4,7 @@
 #include"graphics.h"
 
 void setPixel(int x, int y) {
-	//ÓÃOpenGL×Ô¼ºµÄº¯ÊıÊµÏÖÊéÉÏµÄsetPixel
+	//ç”¨OpenGLè‡ªå·±çš„å‡½æ•°å®ç°ä¹¦ä¸Šçš„setPixel
 	glPointSize(3.0f);
 	glColor3f(1.0f, 1.0f, 1.0f);
 	glBegin(GL_POINTS);
@@ -14,21 +14,21 @@ void setPixel(int x, int y) {
 }
 
 void setPixel(int x, int y, int color) {
-	//ÓÃOpenGL×Ô¼ºµÄº¯ÊıÊµÏÖÊéÉÏµÄsetPixel
+	//ç”¨OpenGLè‡ªå·±çš„å‡½æ•°å®ç°ä¹¦ä¸Šçš„setPixel
 	glPointSize(3.0f);
 	switch (color) {
-		case 0:
-			glColor3f(1.0, 0.0, 0.0);
-			break;
-		case 1:
-			glColor3f(0.0, 1.0, 0.0);
-			break;
-		case 2:
-			glColor3f(0.0, 0.0, 1.0);
-			break;
-		default:
-			glColor3f(1.0, 1.0, 1.0);
-			break;
+	case 0:
+		glColor3f(1.0, 0.0, 0.0);
+		break;
+	case 1:
+		glColor3f(0.0, 1.0, 0.0);
+		break;
+	case 2:
+		glColor3f(0.0, 0.0, 1.0);
+		break;
+	default:
+		glColor3f(1.0, 1.0, 1.0);
+		break;
 	}
 	glBegin(GL_POINTS);
 	glVertex2i(x, y);
@@ -37,7 +37,7 @@ void setPixel(int x, int y, int color) {
 }
 
 void setPixel_point(int x, int y) {
-	//ÓÃOpenGL×Ô¼ºµÄº¯ÊıÊµÏÖÊéÉÏµÄsetPixel
+	//ç”¨OpenGLè‡ªå·±çš„å‡½æ•°å®ç°ä¹¦ä¸Šçš„setPixel
 	glColor3f(1.0f, 1.0f, 1.0f);
 	glPointSize(10.0f);
 	glBegin(GL_POINTS);
@@ -47,7 +47,7 @@ void setPixel_point(int x, int y) {
 }
 
 void setPixel_point_red(int x, int y) {
-	//ÓÃOpenGL×Ô¼ºµÄº¯ÊıÊµÏÖÊéÉÏµÄsetPixel
+	//ç”¨OpenGLè‡ªå·±çš„å‡½æ•°å®ç°ä¹¦ä¸Šçš„setPixel
 	glPointSize(10.0f);
 	glColor3f(1.0f, 0.0f, 0.0f);
 	glBegin(GL_POINTS);
@@ -58,16 +58,16 @@ void setPixel_point_red(int x, int y) {
 }
 
 void lineDDA(int x0, int y0, int xEnd, int yEnd) {
-	glPointSize(1.0f);//ÉèÖÃÏñËØµã´óĞ¡
+	glPointSize(1.0f);//è®¾ç½®åƒç´ ç‚¹å¤§å°
 	int dx = xEnd - x0, dy = yEnd - y0, steps, k;
 	float xIncrement, yIncrement, x = x0, y = y0;
-	if (abs(dx) > abs(dy))//È·¶¨²½³¤£¬Ë­´ó¾ÍÈ¡Ë­
+	if (abs(dx) > abs(dy))//ç¡®å®šæ­¥é•¿ï¼Œè°å¤§å°±å–è°
 		steps = abs(dx);
 	else
 		steps = abs(dy);
-	xIncrement = float(dx) / float(steps);//ÔöÁ¿µ±ÖĞÓĞÒ»¸ö»áÎª1£¬ÁíÒ»¸ö»áÎªĞ±ÂÊk
+	xIncrement = float(dx) / float(steps);//å¢é‡å½“ä¸­æœ‰ä¸€ä¸ªä¼šä¸º1ï¼Œå¦ä¸€ä¸ªä¼šä¸ºæ–œç‡k
 	yIncrement = float(dy) / float(steps);
-	setPixel(round(x), round(y));//ÓÉÓÚÃ¿´Î¶¼¼ÓÁËĞ¡ÓÚ1µÄÔöÁ¿£¬ËùÒÔĞèÒªÈ¡Õû
+	setPixel(round(x), round(y));//ç”±äºæ¯æ¬¡éƒ½åŠ äº†å°äº1çš„å¢é‡ï¼Œæ‰€ä»¥éœ€è¦å–æ•´
 	for (k = 0; k < steps; k++) {
 		/*
 		glBegin(GL_POINTS);
@@ -82,16 +82,16 @@ void lineDDA(int x0, int y0, int xEnd, int yEnd) {
 }
 
 void lineDDA(int x0, int y0, int xEnd, int yEnd, int color) {
-	glPointSize(1.0f);//ÉèÖÃÏñËØµã´óĞ¡
+	glPointSize(1.0f);//è®¾ç½®åƒç´ ç‚¹å¤§å°
 	int dx = xEnd - x0, dy = yEnd - y0, steps, k;
 	float xIncrement, yIncrement, x = x0, y = y0;
-	if (abs(dx) > abs(dy))//È·¶¨²½³¤£¬Ë­´ó¾ÍÈ¡Ë­
+	if (abs(dx) > abs(dy))//ç¡®å®šæ­¥é•¿ï¼Œè°å¤§å°±å–è°
 		steps = abs(dx);
 	else
 		steps = abs(dy);
-	xIncrement = float(dx) / float(steps);//ÔöÁ¿µ±ÖĞÓĞÒ»¸ö»áÎª1£¬ÁíÒ»¸ö»áÎªĞ±ÂÊk
+	xIncrement = float(dx) / float(steps);//å¢é‡å½“ä¸­æœ‰ä¸€ä¸ªä¼šä¸º1ï¼Œå¦ä¸€ä¸ªä¼šä¸ºæ–œç‡k
 	yIncrement = float(dy) / float(steps);
-	setPixel(round(x), round(y), color);//ÓÉÓÚÃ¿´Î¶¼¼ÓÁËĞ¡ÓÚ1µÄÔöÁ¿£¬ËùÒÔĞèÒªÈ¡Õû
+	setPixel(round(x), round(y), color);//ç”±äºæ¯æ¬¡éƒ½åŠ äº†å°äº1çš„å¢é‡ï¼Œæ‰€ä»¥éœ€è¦å–æ•´
 	for (k = 0; k < steps; k++) {
 		/*
 		glBegin(GL_POINTS);
@@ -147,11 +147,11 @@ void eclipseBres(int xc, int yc, int rx, int ry) {
 	}
 }
 
-// ¶şÎ¬±ä»»
+// äºŒç»´å˜æ¢
 #define PI 3.14159265358
 typedef GLfloat Matrix3x3[3][3];
 
-//ÉèÖÃÎªµ¥Î»¾ØÕó
+//è®¾ç½®ä¸ºå•ä½çŸ©é˜µ
 void matrix3x3SetIdentity(Matrix3x3 mat) {
 	GLint row, col;
 	for (row = 0; row < 3; row++) {
@@ -159,9 +159,9 @@ void matrix3x3SetIdentity(Matrix3x3 mat) {
 			mat[row][col] = (row == col);
 	}
 }
-Matrix3x3 matComposite;//¸´ºÏ¾ØÕó
+Matrix3x3 matComposite;//å¤åˆçŸ©é˜µ
 
-//¾ØÕóÏà³Ë
+//çŸ©é˜µç›¸ä¹˜
 void matrixpreMultiply(Matrix3x3 m1, Matrix3x3 m2) {
 	GLint row, col;
 	Matrix3x3 tmp;
@@ -177,15 +177,15 @@ void matrixpreMultiply(Matrix3x3 m1, Matrix3x3 m2) {
 		}
 	}
 }
-//Æ½ÒÆ
+//å¹³ç§»
 void translate2D(GLfloat tx, GLfloat ty) {
 	Matrix3x3 matTransl;
-	matrix3x3SetIdentity(matTransl);//ÉèÖÃÎªµ¥Î»¾ØÕó
+	matrix3x3SetIdentity(matTransl);//è®¾ç½®ä¸ºå•ä½çŸ©é˜µ
 	matTransl[0][2] = tx;
 	matTransl[1][2] = ty;
 	matrixpreMultiply(matTransl, matComposite);
 }
-//Ğı×ª
+//æ—‹è½¬
 void rotate2D(int x, int y, float theta) {
 	theta = theta / 180 * PI;
 	Matrix3x3 matRot;
@@ -199,10 +199,10 @@ void rotate2D(int x, int y, float theta) {
 	matrixpreMultiply(matRot, matComposite);
 	cout << matComposite[0][0] << "!!??" << endl;
 }
-//Ëõ·Å
+//ç¼©æ”¾
 void scale2D(GLfloat sx, GLfloat sy, int x, int y) {
 	Matrix3x3 matScale;
-	
+
 	matrix3x3SetIdentity(matScale);
 	matScale[0][0] = sx;
 	matScale[0][2] = (1 - sx)*x;
@@ -210,7 +210,7 @@ void scale2D(GLfloat sx, GLfloat sy, int x, int y) {
 	matScale[1][2] = (1 - sy)*y;
 	matrixpreMultiply(matScale, matComposite);
 }
-//¸´ºÏ¾ØÕó
+//å¤åˆçŸ©é˜µ
 void transformVerts2D(vector<point> &points) {
 	GLfloat tmp;
 	for (int i = 0; i < points.size(); i++) {
@@ -221,17 +221,17 @@ void transformVerts2D(vector<point> &points) {
 	matrix3x3SetIdentity(matComposite);
 }
 
-//Ìî³äËã·¨
+//å¡«å……ç®—æ³•
 typedef struct XET
 {
 	float x;
-	float dx;  // ´Óµ±Ç°É¨ÃèÏßµ½ÏÂÒ»ÌõÉ¨ÃèÏß¼äxµÄÔöÁ¿£¬¼´Ğ±ÂÊµÄµ¹Êı
-	float ymax; //¸Ã±ßËù½»µÄ×î¸ßÉ¨ÃèÏßµÄ×ø±êÖµymax
+	float dx;  // ä»å½“å‰æ‰«æçº¿åˆ°ä¸‹ä¸€æ¡æ‰«æçº¿é—´xçš„å¢é‡ï¼Œå³æ–œç‡çš„å€’æ•°
+	float ymax; //è¯¥è¾¹æ‰€äº¤çš„æœ€é«˜æ‰«æçº¿çš„åæ ‡å€¼ymax
 	XET* next;
-}AET, NET; //AET »îĞÔ±ß±í£» NETĞÂ±ß±í
+}AET, NET; //AET æ´»æ€§è¾¹è¡¨ï¼› NETæ–°è¾¹è¡¨
 
 
-//»­µãº¯Êı
+//ç”»ç‚¹å‡½æ•°
 void draw_a_point(int x, int y)
 {
 	glBegin(GL_POINTS);
@@ -243,7 +243,7 @@ void draw_a_point(int x, int y)
 
 void PolyScan(vector<point> &vertice)
 {
-	/*µÃµ½×î¸ßµãµÄy×ø±ê*/
+	/*å¾—åˆ°æœ€é«˜ç‚¹çš„yåæ ‡*/
 	int Max_Y = 0;
 	for (int i = 0; i < vertice.size(); i++)
 		/*Max_Y = max(Max_Y, vertice[i].y);*/
@@ -251,51 +251,51 @@ void PolyScan(vector<point> &vertice)
 			Max_Y = vertice[i].y;
 
 
-	//³õÊ¼»¯AET±í
+	//åˆå§‹åŒ–AETè¡¨
 	AET* pAET = new AET;
 	pAET->next = NULL;
 
-	//³õÊ¼»¯NET±í
-	NET* pNET[800]; //µõÍ°
+	//åˆå§‹åŒ–NETè¡¨
+	NET* pNET[800]; //åŠæ¡¶
 	for (int i = 0; i <= Max_Y; i++)
 	{
 		pNET[i] = new NET;
 		pNET[i]->next = NULL;;
 	}
 
-	//É¨Ãè²¢ÇÒ½¨Á¢NET±í
-	int len = vertice.size(); //¶¥µã¸öÊı
+	//æ‰«æå¹¶ä¸”å»ºç«‹NETè¡¨
+	int len = vertice.size(); //é¡¶ç‚¹ä¸ªæ•°
 	for (int i = 0; i <= Max_Y; i++)
 	{
-		for (int j = 0; j < len; j++) //É¨ÃèÃ¿¸öµã
+		for (int j = 0; j < len; j++) //æ‰«ææ¯ä¸ªç‚¹
 		{
 			if (i == vertice[j].y)
 			{
-				//Èç¹ûÒ»¸öµãºÍÇ°Ò»¸öµãÓĞÒ»Ìõ±ßÏàÁ¬£¬Ôò¸ÃµãºÍºóÃæÒ»¸öµãÒ²ÏàÁ¬
-				//£¡Õâ¸öÊ½×Ó ±ãÓÚ×îºóÒ»¸ö¶¥µãºÍµÚÒ»¸öµãÏàÁ¬ ºÍ ·ÀÖ¹³öÏÖ¸ºÊı
+				//å¦‚æœä¸€ä¸ªç‚¹å’Œå‰ä¸€ä¸ªç‚¹æœ‰ä¸€æ¡è¾¹ç›¸è¿ï¼Œåˆ™è¯¥ç‚¹å’Œåé¢ä¸€ä¸ªç‚¹ä¹Ÿç›¸è¿
+				//ï¼è¿™ä¸ªå¼å­ ä¾¿äºæœ€åä¸€ä¸ªé¡¶ç‚¹å’Œç¬¬ä¸€ä¸ªç‚¹ç›¸è¿ å’Œ é˜²æ­¢å‡ºç°è´Ÿæ•°
 
-				//ÅĞ¶Ïµ±Ç°µãµÄ¸ßµÍ£¬Ê¹ymax¡¢DX¡¢DYµÄ¼ÆËãÓĞ±ä»¯
+				//åˆ¤æ–­å½“å‰ç‚¹çš„é«˜ä½ï¼Œä½¿ymaxã€DXã€DYçš„è®¡ç®—æœ‰å˜åŒ–
 				if (vertice[(j - 1 + len) % len].y > vertice[j].y)
 				{
-					//Ç°Ò»¸öµãÔÚµ±Ç°µãµÄÉÏ·½
+					//å‰ä¸€ä¸ªç‚¹åœ¨å½“å‰ç‚¹çš„ä¸Šæ–¹
 					NET* p = new NET;
 					p->x = vertice[j].x;
-					p->ymax = vertice[(j - 1 + len) % len].y;//Óëµ±Ç°É¨ÃèÏßÏà½»µÄ»îĞÔ±ß µÄ ×î¸ßµã¼´ÎªÏàÁÚ¶¥µãµÄy
+					p->ymax = vertice[(j - 1 + len) % len].y;//ä¸å½“å‰æ‰«æçº¿ç›¸äº¤çš„æ´»æ€§è¾¹ çš„ æœ€é«˜ç‚¹å³ä¸ºç›¸é‚»é¡¶ç‚¹çš„y
 					float DX = vertice[(j - 1 + len) % len].x - vertice[j].x;
 					float DY = vertice[(j - 1 + len) % len].y - vertice[j].y;
-					p->dx = DX / DY;//dxÎªÖ±ÏßĞ±ÂÊµÄµ¹Êı
+					p->dx = DX / DY;//dxä¸ºç›´çº¿æ–œç‡çš„å€’æ•°
 					p->next = pNET[i]->next;
 					pNET[i]->next = p;
 				}
 				if (vertice[(j + 1) % len].y > vertice[j].y)
 				{
-					//ºóÒ»¸öµãÔÚµ±Ç°µãµÄÉÏ·½
+					//åä¸€ä¸ªç‚¹åœ¨å½“å‰ç‚¹çš„ä¸Šæ–¹
 					NET* p = new NET;
 					p->x = vertice[j].x;
 					p->ymax = vertice[(j + 1) % len].y;
 					float DX = vertice[(j + 1) % len].x - vertice[j].x;
 					float DY = vertice[(j + 1) % len].y - vertice[j].y;
-					p->dx = DX / DY;//dxÎªÖ±ÏßĞ±ÂÊµÄµ¹Êı
+					p->dx = DX / DY;//dxä¸ºç›´çº¿æ–œç‡çš„å€’æ•°
 					p->next = pNET[i]->next;
 					pNET[i]->next = p;
 				}
@@ -303,41 +303,41 @@ void PolyScan(vector<point> &vertice)
 		}
 	}
 
-	//½¨Á¢²¢ÇÒ¸üĞÂ»îĞÔ±ß±íAET
-	//¸÷ÌõÉ¨ÃèÏßi
+	//å»ºç«‹å¹¶ä¸”æ›´æ–°æ´»æ€§è¾¹è¡¨AET
+	//å„æ¡æ‰«æçº¿i
 	for (int i = 0; i <= Max_Y; i++)
 	{
-		/*°ÑĞÂ±ß±íNET[i] ÖĞµÄ±ß½áµãÓÃ²åÈëÅÅĞò·¨²åÈëAET±í£¬Ê¹Ö®°´x×ø±êµİÔöË³ĞòÅÅÁĞ*/
+		/*æŠŠæ–°è¾¹è¡¨NET[i] ä¸­çš„è¾¹ç»“ç‚¹ç”¨æ’å…¥æ’åºæ³•æ’å…¥AETè¡¨ï¼Œä½¿ä¹‹æŒ‰xåæ ‡é€’å¢é¡ºåºæ’åˆ—*/
 
-		//¼ÆËãÃ¿ÌõÉ¨ÃèÏßÉÏ²»Í¬Ïß²úÉúµÄĞÂµÄ½»µãx£¬¸üĞÂAET
+		//è®¡ç®—æ¯æ¡æ‰«æçº¿ä¸Šä¸åŒçº¿äº§ç”Ÿçš„æ–°çš„äº¤ç‚¹xï¼Œæ›´æ–°AET
 		NET* p = pAET->next;
 		while (p)
 		{
-			p->x = p->x + p->dx; //¸üĞÂx×ø±ê
+			p->x = p->x + p->dx; //æ›´æ–°xåæ ‡
 			p = p->next;
 		}
 
-		//¶Ï±íÅÅĞò,²»ÔÙ¿ª±Ù¿Õ¼ä 
+		//æ–­è¡¨æ’åº,ä¸å†å¼€è¾Ÿç©ºé—´ 
 		AET* tq = pAET;
 		p = pAET->next;
 		tq->next = NULL;
-		while (p)//Ë³×ÅÁ´±íÍùÏÂ×ß
+		while (p)//é¡ºç€é“¾è¡¨å¾€ä¸‹èµ°
 		{
-			//ÕÒµ½µÚÒ»¸ö±ÈËü´óµÄÊı×Ötq->next->next->x£¬Ôò´Óp->nextµ½tq->next¶¼ÊÇ±Èp->xĞ¡µÄ
+			//æ‰¾åˆ°ç¬¬ä¸€ä¸ªæ¯”å®ƒå¤§çš„æ•°å­—tq->next->next->xï¼Œåˆ™ä»p->nextåˆ°tq->nextéƒ½æ˜¯æ¯”p->xå°çš„
 			while (tq->next != NULL && tq->next->x <= p->x)
 				tq = tq->next;
-			//²åÈëpµ½tqºÍtq->nextÖ®¼ä
+			//æ’å…¥påˆ°tqå’Œtq->nextä¹‹é—´
 			NET* t = p->next;
 			p->next = tq->next;
 			tq->next = p;
 			p = t;
 
-			tq = pAET;//»Øµ½Í·
+			tq = pAET;//å›åˆ°å¤´
 		}
 
-		/*(¸Ä½øËã·¨) È¡ÏûÇó½»£¬¼õÉÙ¼ÆËãÁ¿*/
-		//ÏÈ´ÓAET±íÖĞÉ¾³ıymax==iµÄ½áµã****************************************/
-		//ÏñËØµÄÈ¡ÉáÎÊÌâ£¬±£Ö¤¶à±ßĞÎµÄ¡°ÏÂ±ÕÉÏ¿ª¡±£¬±ÜÃâÌî³äÀ©´ó»¯£¨½»µãµÄ¸öÊıÓ¦±£Ö¤ÎªÅ¼Êı¸ö£©
+		/*(æ”¹è¿›ç®—æ³•) å–æ¶ˆæ±‚äº¤ï¼Œå‡å°‘è®¡ç®—é‡*/
+		//å…ˆä»AETè¡¨ä¸­åˆ é™¤ymax==içš„ç»“ç‚¹****************************************/
+		//åƒç´ çš„å–èˆé—®é¢˜ï¼Œä¿è¯å¤šè¾¹å½¢çš„â€œä¸‹é—­ä¸Šå¼€â€ï¼Œé¿å…å¡«å……æ‰©å¤§åŒ–ï¼ˆäº¤ç‚¹çš„ä¸ªæ•°åº”ä¿è¯ä¸ºå¶æ•°ä¸ªï¼‰
 		AET* q = pAET;
 		p = q->next;
 		while (p)
@@ -355,40 +355,40 @@ void PolyScan(vector<point> &vertice)
 			}
 		}
 
-		//ÈôNETÖĞÓĞĞÂµã£¬½«ÆäÓÃ²åÈë·¨²åÈëAET£¬°´xµİÔöµÄË³ĞòÅÅÁĞ
+		//è‹¥NETä¸­æœ‰æ–°ç‚¹ï¼Œå°†å…¶ç”¨æ’å…¥æ³•æ’å…¥AETï¼ŒæŒ‰xé€’å¢çš„é¡ºåºæ’åˆ—
 		p = pNET[i]->next;
 		q = pAET;
 		while (p)
 		{
 			while (q->next && p->x >= q->next->x)
 				q = q->next;
-			//²åÈëp
+			//æ’å…¥p
 			NET* t = p->next;
 			p->next = q->next;
 			q->next = p;
 			p = t;
 
-			q = pAET;//»Øµ½Í·
+			q = pAET;//å›åˆ°å¤´
 		}
 
-		//Åä¶ÔºóÌî³äÑÕÉ«
+		//é…å¯¹åå¡«å……é¢œè‰²
 		p = pAET->next;
 		while (p && p->next != NULL)
 		{
 			for (float j = p->x; j <= p->next->x; j++)
 			{
-				//É¨ÃèÏß»­µã
+				//æ‰«æçº¿ç”»ç‚¹
 				draw_a_point(j, i);
 				//cout << "(" << j << ", " << i << ")" << endl;
 			}
-			p = p->next->next;//¿¼ÂÇ¶ËµãÇé¿ö
+			p = p->next->next;//è€ƒè™‘ç«¯ç‚¹æƒ…å†µ
 		}
 	}
 	glFlush();
 }
-//²Ã¼ôËã·¨
+//è£å‰ªç®—æ³•
 
-struct EDGE//Edge±ß
+struct EDGE//Edgeè¾¹
 {
 	float bx, by, ex, ey;
 	EDGE() {}
@@ -400,7 +400,7 @@ public:
 	int x, y;
 	int width;
 	int height;
-	int l, r, t, b; //±ß½ç£º×óÓÒÉÏÏÂ
+	int l, r, t, b; //è¾¹ç•Œï¼šå·¦å³ä¸Šä¸‹
 	Window(int x, int y, int width, int height) {
 		this->x = x;
 		this->y = y;
@@ -413,7 +413,7 @@ public:
 	}
 };
 Window myWindow(200, 200, 400, 250);
-//»­²Ã¼ô´°¿Ú
+//ç”»è£å‰ªçª—å£
 void draw_window() {
 	glBegin(GL_LINE_LOOP);
 	glVertex2i(myWindow.l, myWindow.b);
@@ -427,24 +427,24 @@ EDGE bottom(200, 200, 600, 200);
 EDGE right(600, 200, 600, 450);
 EDGE top(600, 450, 200, 450);
 
-bool inside(point& pt, EDGE ClipBoundary)//ÅĞ¶ÏµãÊÇ·ñ¿É¼û
+bool inside(point& pt, EDGE ClipBoundary)//åˆ¤æ–­ç‚¹æ˜¯å¦å¯è§
 {
 	if (ClipBoundary.ex > ClipBoundary.bx)
 	{
-		if (pt.y >= ClipBoundary.by)//²Ã¼ô±ßÎª´°¿ÚÏÂ±ßÑØ
+		if (pt.y >= ClipBoundary.by)//è£å‰ªè¾¹ä¸ºçª—å£ä¸‹è¾¹æ²¿
 			return true;
 	}
 	else if (ClipBoundary.ex < ClipBoundary.bx)
 	{
-		if (pt.y <= ClipBoundary.by)//²Ã¼ô±ßÎª´°¿ÚÉÏ±ßÑØ
+		if (pt.y <= ClipBoundary.by)//è£å‰ªè¾¹ä¸ºçª—å£ä¸Šè¾¹æ²¿
 			return true;
 	}
-	else if (ClipBoundary.ey > ClipBoundary.by)//²Ã¼ô±ßÎª´°¿ÚÓÒ±ßÑØ
+	else if (ClipBoundary.ey > ClipBoundary.by)//è£å‰ªè¾¹ä¸ºçª—å£å³è¾¹æ²¿
 	{
 		if (pt.x <= ClipBoundary.bx)
 			return true;
 	}
-	else if (ClipBoundary.ey < ClipBoundary.by)//²Ã¼ô±ßÎª´°¿Ú×ó±ßÑØ
+	else if (ClipBoundary.ey < ClipBoundary.by)//è£å‰ªè¾¹ä¸ºçª—å£å·¦è¾¹æ²¿
 	{
 		if (pt.x >= ClipBoundary.bx)
 			return true;
@@ -452,16 +452,16 @@ bool inside(point& pt, EDGE ClipBoundary)//ÅĞ¶ÏµãÊÇ·ñ¿É¼û
 	return false;
 }
 
-//Ö±Ïß¶ÎSPºÍ±ß½çÇó½»£¬·µ»Ø½»µã
+//ç›´çº¿æ®µSPå’Œè¾¹ç•Œæ±‚äº¤ï¼Œè¿”å›äº¤ç‚¹
 void intersect(point& s, point& p, EDGE ClipBoundary, point& intersect_pt)
 {
-	if (ClipBoundary.by == ClipBoundary.ey)//Ë®Æ½²Ã¼ô±ß½ç
+	if (ClipBoundary.by == ClipBoundary.ey)//æ°´å¹³è£å‰ªè¾¹ç•Œ
 	{
 		intersect_pt.y = ClipBoundary.by;
-		//x=ÆğµãµÄºá×ø±ê+dy/spĞ±ÂÊ
+		//x=èµ·ç‚¹çš„æ¨ªåæ ‡+dy/spæ–œç‡
 		intersect_pt.x = s.x + (ClipBoundary.by - s.y) * (p.x - s.x) / (p.y - s.y);
 	}
-	else//´¹Ö±²Ã¼ô±ß½ç
+	else//å‚ç›´è£å‰ªè¾¹ç•Œ
 	{
 		intersect_pt.x = ClipBoundary.bx;
 		intersect_pt.y = s.y + (ClipBoundary.bx - s.x) * (p.y - s.y) / (p.x - s.x);
@@ -472,39 +472,39 @@ vector<point> SutherlandHodgmanClip(EDGE ClipBoundary, vector<point> input_verti
 {
 	point s, p, ip;
 	vector<point> output_vertice;
-	s = input_vertice[input_vertice.size() - 1];//ÏÈ´Ó×îºóÒ»¸öµãÖ¸ÏòµÚÒ»¸öµãµÄÏß¶Î¿ªÊ¼¼ìÑé
+	s = input_vertice[input_vertice.size() - 1];//å…ˆä»æœ€åä¸€ä¸ªç‚¹æŒ‡å‘ç¬¬ä¸€ä¸ªç‚¹çš„çº¿æ®µå¼€å§‹æ£€éªŒ
 
 	for (int j = 0; j < input_vertice.size(); j++)
 	{
 		p = input_vertice[j];
-		if (inside(p, ClipBoundary))//pÔÚÄÚ
+		if (inside(p, ClipBoundary))//påœ¨å†…
 		{
-			if (inside(s, ClipBoundary))//sp¶¼ÔÚ´°¿ÚÄÚ
+			if (inside(s, ClipBoundary))//spéƒ½åœ¨çª—å£å†…
 			{
 				output_vertice.push_back(p);
 			}
-			else//pÔÚÀïÃæ s²»ÔÚ
+			else//påœ¨é‡Œé¢ sä¸åœ¨
 			{
 				intersect(s, p, ClipBoundary, ip);
 				output_vertice.push_back(ip);
 				output_vertice.push_back(p);
 			}
 		}
-		else//pÔÚÍâÃæ
+		else//påœ¨å¤–é¢
 		{
-			if (inside(s, ClipBoundary))//sÔÚ´°¿ÚÄÚpÔÚ´°¿ÚÍâ
+			if (inside(s, ClipBoundary))//såœ¨çª—å£å†…påœ¨çª—å£å¤–
 			{
 				intersect(s, p, ClipBoundary, ip);
 				output_vertice.push_back(ip);
 			}
-			//sp¶¼ÔÚÍâÃæÔòÎŞÊä³ö
+			//spéƒ½åœ¨å¤–é¢åˆ™æ— è¾“å‡º
 		}
 		s = p;
 	}
-	return output_vertice;//Õâ´ÎµÄÊä³ö×÷ÎªÏÂÒ»´ÎµÄÊäÈë£¬input_verticeºÍoutput_verticeÊÇÈ«¾Ö±äÁ¿
+	return output_vertice;//è¿™æ¬¡çš„è¾“å‡ºä½œä¸ºä¸‹ä¸€æ¬¡çš„è¾“å…¥ï¼Œinput_verticeå’Œoutput_verticeæ˜¯å…¨å±€å˜é‡
 }
 
-//»­µãº¯Êı
+//ç”»ç‚¹å‡½æ•°
 void draw_a_point(float x, float y, float color[])
 {
 	glPointSize(5.0f);
@@ -515,8 +515,8 @@ void draw_a_point(float x, float y, float color[])
 	glFlush();
 }
 
-// bezierÇúÏß
-double setBezier(int n, int i, float t) {	// n½×±´Èû¶ûÇúÏß»æÖÆµÄ´úÂë
+// bezieræ›²çº¿
+double setBezier(int n, int i, float t) {	// né˜¶è´å¡å°”æ›²çº¿ç»˜åˆ¶çš„ä»£ç 
 	int sum = 1;
 	if (i == n || i == 0) return pow(t, i) * pow(1 - t, n - i);
 	int j;
@@ -528,30 +528,30 @@ double setBezier(int n, int i, float t) {	// n½×±´Èû¶ûÇúÏß»æÖÆµÄ´úÂë
 }
 
 void bezier(vector<point>  ctrlPts) {
-	//ÊäÈë£ºnCtrlPts¸ö¿ØÖÆµã£¬×ø±ê±£´æÓÚctrlPtsÊı×éÖĞ 
-	//Êä³ö£ºnBezCurvePts¸öÇúÏßÉÏµÄµã£¬×ø±ê±£´æÓÚÊı×ébezCurvePtsÖĞ
+	//è¾“å…¥ï¼šnCtrlPtsä¸ªæ§åˆ¶ç‚¹ï¼Œåæ ‡ä¿å­˜äºctrlPtsæ•°ç»„ä¸­ 
+	//è¾“å‡ºï¼šnBezCurvePtsä¸ªæ›²çº¿ä¸Šçš„ç‚¹ï¼Œåæ ‡ä¿å­˜äºæ•°ç»„bezCurvePtsä¸­
 
-	//1.ÔÚ´Ë´¦Ìí¼Ó´úÂë
+	//1.åœ¨æ­¤å¤„æ·»åŠ ä»£ç 
 	int nCtrlPts = ctrlPts.size();
 	int nBezCurvePts = (nCtrlPts - 1) * 5 + 1;
 	int cnt = 0;
-	point p_current = ctrlPts[cnt];	// °Ñµ±Ç°µÄ¿ØÖÆµãÉèÎª¸Ã¶Î±´Èû¶ûÇúÏßµÄÆğµã	
+	point p_current = ctrlPts[cnt];	// æŠŠå½“å‰çš„æ§åˆ¶ç‚¹è®¾ä¸ºè¯¥æ®µè´å¡å°”æ›²çº¿çš„èµ·ç‚¹	
 	for (float c = 0; c <= 1; c += 1.0 / nBezCurvePts) {
 		point p;
 		p.x = 0;
 		p.y = 0;
-		for (int k = 0; k < nCtrlPts; ++k) {	// ¼ÆËã¸Ã¶Î±´Èû¶ûÇúÏßµÄ±´Èû¶ûµã
+		for (int k = 0; k < nCtrlPts; ++k) {	// è®¡ç®—è¯¥æ®µè´å¡å°”æ›²çº¿çš„è´å¡å°”ç‚¹
 			p.x += ctrlPts[k].x * setBezier(nCtrlPts - 1, k, c);
 			p.y += ctrlPts[k].y * setBezier(nCtrlPts - 1, k, c);
 		}
-		glLineWidth(1.5f);	// ÉèÖÃÏß¿í
+		glLineWidth(1.5f);	// è®¾ç½®çº¿å®½
 		glBegin(GL_LINE_STRIP);
-		glVertex2f(p_current.x, p_current.y);	// »æÖÆ¸Ã¶Î±´Èû¶ûÇúÏßµÄ±´Èû¶ûµã
-		glVertex2f(p.x, p.y);		// »æÖÆ¸Ã¶Î±´Èû¶ûÇúÏßµÄ±´Èû¶ûµã
+		glVertex2f(p_current.x, p_current.y);	// ç»˜åˆ¶è¯¥æ®µè´å¡å°”æ›²çº¿çš„è´å¡å°”ç‚¹
+		glVertex2f(p.x, p.y);		// ç»˜åˆ¶è¯¥æ®µè´å¡å°”æ›²çº¿çš„è´å¡å°”ç‚¹
 		glEnd();
 		p_current = p;
 	}
-	// »æÖÆ×îºóÒ»¶ÎµÄµã
+	// ç»˜åˆ¶æœ€åä¸€æ®µçš„ç‚¹
 	glLineWidth(1.5f);
 	glBegin(GL_LINE_STRIP);
 	glVertex2f(p_current.x, p_current.y);
@@ -559,9 +559,9 @@ void bezier(vector<point>  ctrlPts) {
 	glEnd();
 }
 
-//¶à±ßĞÎ²Ã¼ôËã·¨+³¤·½ĞÎ²Ã¼ô¿ò
+//å¤šè¾¹å½¢è£å‰ªç®—æ³•+é•¿æ–¹å½¢è£å‰ªæ¡†
 //-----------------------------------------
-//Liang-Barsky Ïß¶Î²Ã¼ôËã·¨
+//Liang-Barsky çº¿æ®µè£å‰ªç®—æ³•
 
 class wcPt2D {
 
@@ -603,7 +603,7 @@ Default Constructor:initalize position 48(0.0,0.0).*/
 };
 
 
-//Ã¶¾ÙÀàµÄÌæ´ú, C++ÖĞenumµÄ²Ù×÷ÓëCÓĞºÜ´ó²»Í¬
+//æšä¸¾ç±»çš„æ›¿ä»£, C++ä¸­enumçš„æ“ä½œä¸Cæœ‰å¾ˆå¤§ä¸åŒ
 const int Left = 0, Right = 1, Bottom = 2, Top = 3;
 
 //typedef enum{
@@ -615,7 +615,7 @@ using namespace std;
 const GLint nClip = 4;
 
 
-//ÅĞ¶ÏµãpÊÇ·ñÔÚÏÔÊ¾¿òÄÚ
+//åˆ¤æ–­ç‚¹pæ˜¯å¦åœ¨æ˜¾ç¤ºæ¡†å†…
 GLint inside(wcPt2D p, int b, wcPt2D wMin, wcPt2D wMax) {
 	int flag = true;
 	switch (b) {
@@ -647,7 +647,7 @@ GLint inside(wcPt2D p, int b, wcPt2D wMin, wcPt2D wMax) {
 	return flag;
 }
 
-//ÅĞ¶ÏÏòÁ¿(p1, p2)ÊÇ·ñÓë±ß½çÏà½»
+//åˆ¤æ–­å‘é‡(p1, p2)æ˜¯å¦ä¸è¾¹ç•Œç›¸äº¤
 GLint cross(wcPt2D p1, wcPt2D p2, int winEdge, wcPt2D wMin, wcPt2D wMax) {
 	if (inside(p1, winEdge, wMin, wMax) == inside(p2, winEdge, wMin, wMax)) {
 		return false;
@@ -657,7 +657,7 @@ GLint cross(wcPt2D p1, wcPt2D p2, int winEdge, wcPt2D wMin, wcPt2D wMax) {
 	}
 }
 
-//·µ»ØÏòÁ¿(p1, p2)ÓëÏàÓ¦±ß½çµÄ½»µã
+//è¿”å›å‘é‡(p1, p2)ä¸ç›¸åº”è¾¹ç•Œçš„äº¤ç‚¹
 wcPt2D intersect(wcPt2D p1, wcPt2D p2, int winEdge, wcPt2D wMin, wcPt2D wMax) {
 	wcPt2D iPt;
 	GLfloat m;
@@ -704,7 +704,7 @@ void clipPoint(wcPt2D &p, int winEdge, wcPt2D wMin, wcPt2D wMax, wcPt2D * pOut,
 	int *cnt, wcPt2D first[], wcPt2D *s) {
 	wcPt2D iPt;
 
-	//ÅĞ¶Ïfirst[winEdge]ÎªnullPtr
+	//åˆ¤æ–­first[winEdge]ä¸ºnullPtr
 	if (first[winEdge].x == 0 && first[winEdge].y == 0) {
 		first[winEdge] = p;
 	}
@@ -715,7 +715,7 @@ void clipPoint(wcPt2D &p, int winEdge, wcPt2D wMin, wcPt2D wMax, wcPt2D * pOut,
 				clipPoint(iPt, winEdge + 1, wMin, wMax, pOut, cnt, first, s);
 			}
 			else {
-				//´æ½»µã
+				//å­˜äº¤ç‚¹
 				pOut[*cnt] = iPt;
 				(*cnt)++;
 			}
@@ -765,12 +765,12 @@ GLint polygonClipSuthHodg(wcPt2D wMin, wcPt2D wMax, GLint n, wcPt2D *pIn, wcPt2D
 //---------------------------------------------
 
 
-//»æÖÆ³ÌĞò
+//ç»˜åˆ¶ç¨‹åº
 void Sutherland_Hodgman(point minP, point maxP, Polygon1 in) {
 
-	//Sutherland-Hodgman¶à±ßĞÎ²Ã¼ôËã·¨
+	//Sutherland-Hodgmanå¤šè¾¹å½¢è£å‰ªç®—æ³•
 	glClear(GL_COLOR_BUFFER_BIT);
-	//¿ÉÊÓ»¯±ß½ç:
+	//å¯è§†åŒ–è¾¹ç•Œ:
 
 	int minX = minP.x, minY = minP.y, maxX = maxP.x, maxY = maxP.y;
 	if (minX > maxX) {
@@ -779,32 +779,32 @@ void Sutherland_Hodgman(point minP, point maxP, Polygon1 in) {
 	if (minY > maxY) {
 		swap(minY, maxY);
 	}
-//	glColor3f(1.0, 0.0, 0.0);
+	//	glColor3f(1.0, 0.0, 0.0);
 	lineDDA(minX, minY, minX, maxY, 0);
 	lineDDA(minX, minY, maxX, minY, 0);
 	lineDDA(maxX, maxY, minX, maxY, 0);
 	lineDDA(maxX, maxY, maxX, minY, 0);
 
-	//¶¨Òå¶à±ßĞÎµÄÑÕÉ«ºÍ¶¥µã
+	//å®šä¹‰å¤šè¾¹å½¢çš„é¢œè‰²å’Œé¡¶ç‚¹
 //	glColor3f(0.0, 1.0, 0.0);
 	GLint n = in.points.size();
 	wcPt2D pIn[20];
 	for (int i = 0; i < n; i++) {
 		pIn[i].setCoords(in.points[i].x, in.points[i].y);
 	}
-	//»æÖÆÔ­Ê¼¶à±ßĞÎ
-	
+	//ç»˜åˆ¶åŸå§‹å¤šè¾¹å½¢
+
 	for (int i = 0; i < n; ++i) {
 		lineDDA(pIn[i].x, pIn[i].y, pIn[(i + 1) % n].x, pIn[(i + 1) % n].y, 1);
-	}	
-	
-	//»ñÈ¡²Ã¼ôºóµÄµã¼¯
+	}
+
+	//è·å–è£å‰ªåçš„ç‚¹é›†
 	wcPt2D pOut[20];
 	int count = polygonClipSuthHodg(wcPt2D(minX, minY), wcPt2D(maxX, maxY), n, pIn, pOut);
 
-	//¶¨Òå²Ã¼ôºóµÄ¶à±ßĞÎÑÕÉ«
+	//å®šä¹‰è£å‰ªåçš„å¤šè¾¹å½¢é¢œè‰²
 //	glColor3f(0.0, 0.0, 1.0);
-	//»æÖÆ²Ã¼ôºóµÄ¶à±ßĞÎ
+	//ç»˜åˆ¶è£å‰ªåçš„å¤šè¾¹å½¢
 	for (int i = 1; i <= count; ++i) {
 		lineDDA(pOut[i - 1].x, pOut[i - 1].y, pOut[i%count].x, pOut[i%count].y, 2);
 	}

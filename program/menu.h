@@ -99,12 +99,6 @@ void menufunc(int data) {
 
 
 void addmenu() {
-	cout << "??";
-	if (menu_num != 0) {
-		cout << "正在运行某个功能" << endl;
-		return;
-	}
-	cout << "!!";
 	menu_num = 0;
 	//构建子菜单1插入图形的内容
 	submenu1 = glutCreateMenu(submenufunc1);
